@@ -1,23 +1,36 @@
-<form class="contact" [formGroup]="form" method="post" (ngSubmit)="onSubmit()">
-	<mat-form-field>
-		<mat-label>Name</mat-label>
-		<input matInput [formControl]="name" required>
-		<mat-error *ngIf="name.invalid">Please enter your name</mat-error>
-	</mat-form-field>
-	<mat-form-field>
-		<mat-label>Email</mat-label>
-		<input matInput [formControl]="email" placeholder="email@example.com" required>
-		<mat-error *ngIf="email.invalid">Please enter a valid email</mat-error>
-	</mat-form-field>
-	<mat-form-field>
-		<mat-label>Message</mat-label>
-		<textarea matInput [formControl]="message" maxlength="256" placeholder="I'm interested in..." required></textarea>
-		<mat-hint align="end"> {{message.value?.length || 0}}/256</mat-hint>
-		<mat-error *ngIf="message.invalid">Please enter a message</mat-error>
-	</mat-form-field>
-	<button [disabled]="isLoading" class="submit" type="submit">Submit</button>
-	<input [formControl]="honeypot" class="hidden" type="text" />
-	<div [ngClass]="!submitted? 'hidden' : 'visible'" class="center-text">
-		<span>{{responseMessage}}</span>
+<form class="form-signup" [formGroup]="form" (ngSubmit)="onSubmit()">
+	<div class="row">
+	<div class="col-12">
+			<div class="col">
+				<input type="text" class="form-control" formControlName="firstName" required minlength="3" placeholder="First name (mandatory)"/>
+				<span class="isa_error" *ngIf="!firstName.valid && firstName.touched  && !isLoading">* Please enter your first name</span>
+			</div>
+			<br>
+			<div class="col">
+				<input type="text" class="form-control" formControlName="lastName" required minlength="3" placeholder="Last name (mandatory)"/>
+				<span class="isa_error" *ngIf="!lastName.valid && lastName.touched  && !isLoading">* Please enter your last name</span>
+			</div>
+			<br>
+			<div class="col">
+				<input type="email" class="form-control" formControlName="email" required minlength="3" placeholder="Email (mandatory)"/>
+				<span class="isa_error" *ngIf="!email.valid && email.touched  && !isLoading">* Please enter your email</span>
+			</div>
+			<br>
+			<div class="col">
+				<textarea required placeholder="Escribe tu mensaje" class="form-control" formControlName="message" required placeholder="Message (mandatory)" cols="30" rows="5"></textarea>
+				<span class="isa_error" *ngIf="!message.valid && message.touched && !isLoading">* The message is mandatory</span>
+			</div>
+			<br>
+			
+		</div>
+	</div>
+	<div class="form-group">
+		<button [disabled]="isLoading" class="btn-success btn" type="submit">Submit</button>
+		<input [formControl]="honeypot" class="hidden" type="text" />
+		<div [ngClass]="!submitted? 'hidden' : 'visible'" class="center-text">
+			<span>{{responseMessage}}</span>
+		</div>
 	</div>
 </form>
+
+

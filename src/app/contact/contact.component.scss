@@ -5,7 +5,8 @@
 	display: block
 }
 .center-text {
-	text-align: center
+	text-align: center;
+	color: white;
 }
 form.contact {
 	display: flex;
@@ -16,21 +17,32 @@ form.contact {
 	margin-right: auto;
 	margin-top: 30px;
 }
-input,
-button {
-	margin-bottom: 10px;
-}
-button {
-	margin-top: 10px;
-	background-color: transparent;
-	color: black;
-	border: 1px solid black;
-	padding: 4px 16px;
-	transition: 0.4s;
-	width: 100%;
-	margin-top: 10px;
-}
-button:hover:enabled{
-	color: white;
-	background-color: black;
-}
+.ng-valid[required] {
+	border-left: 5px solid #42A948; /* green */
+  } 
+  .isa_info, .isa_success, .isa_warning, .isa_error {
+  margin: 10px 0px;
+  padding:12px;
+  float: left;
+   
+  }
+  .isa_info {
+	  color: #00529B;
+	  background-color: #BDE5F8;
+  }
+  .isa_success {
+	  color: #4F8A10;
+	  background-color: #DFF2BF;
+  }
+  .isa_warning {
+	  color: #9F6000;
+	  background-color: #FEEFB3;
+  }
+  .isa_error {
+	  color: #B02406;
+  }
+  .isa_info i, .isa_success i, .isa_warning i, .isa_error i {
+	  margin:10px 22px;
+	  font-size:2em;
+	  vertical-align:middle;
+  }
