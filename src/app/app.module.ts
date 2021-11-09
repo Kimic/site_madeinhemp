@@ -7,11 +7,15 @@ import { HttpClientModule } from "@angular/common/http";
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from "@angular/material/input";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { NgImageSliderModule } from 'ng-image-slider';
+import { SliderComponent } from './slider/slider.component';
+
 
 @NgModule({
 	declarations: [
 		AppComponent,
-		ContactComponent
+		ContactComponent,
+		SliderComponent
 	],
 	imports: [
 		BrowserModule,
@@ -19,7 +23,8 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 		HttpClientModule,
 		NoopAnimationsModule,
 		MatInputModule,
-		BrowserAnimationsModule
+		BrowserAnimationsModule,
+		NgImageSliderModule
 	],
 	providers: [],
 	bootstrap: [AppComponent]
